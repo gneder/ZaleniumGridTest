@@ -32,8 +32,6 @@ Clicar com o botão direito do mouse em qualquer parte do arquivo
 	- Selecionar a opção 'Run TestNG'
 ---
 
-```
-
 ## Cenários
 - [Pesquisar uma conta do Medium no Google]() (:white_check_mark:)
 
@@ -51,7 +49,7 @@ Clicar com o botão direito do mouse em qualquer parte do arquivo
 ---
 
 ### Dependências
-* *[selenium](https://www.selenium.dev/)* 
+* *[selenium](https://www.selenium.dev/)*
 * *[junit](https://junit.org/junit5/)*
 * *[testNG](https://testng.org/doc/)*
 
@@ -72,7 +70,7 @@ Clicar com o botão direito do mouse em qualquer parte do arquivo
 ### Etapa 2
 
 - **Sinta-se livre para codificar!** 🔨🔨🔨
-  - Crie uma branch baseada na branch 'master' seguindo o padrão: feature/NUMERO-NOME-IMPLEMENTACAO
+    - Crie uma branch baseada na branch 'master' seguindo o padrão: feature/NUMERO-NOME-IMPLEMENTACAO
 
 ### Etapa 3
 
