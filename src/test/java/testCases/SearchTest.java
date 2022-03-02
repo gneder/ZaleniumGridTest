@@ -39,7 +39,6 @@ public class SearchTest {
 
         driver.get("http://www.google.com");
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
 
     @Test(priority = 2)
