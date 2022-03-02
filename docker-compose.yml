@@ -1,0 +1,42 @@
+version: "3.7"
+
+services:
+  jenkins:
+    image: jenkins/jenkins:lts
+    privileged: true
+    user: root
+    ports:
+      - "8081:8080"
+      - "50000:50000"
+    container_name: jenkins
+    volumes:
+      - ~/jenkins:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+      - C:\Users\Gabriel Neder\Documents\projetos\docker:/usr/local/bin/docker
+
+  zalenium:
+    image: dosel/zalenium
+    hostname: zalenium
+    deploy:
+      placement:
+        constraints:
+          - node.role == manager
+    labels:
+      - "de.zalando.gridRole=hub" # important for us to identify the node which runs zalenium hub
+    ports:
+      - "4444:4444"
+      - "8000:8000" # port for remote debugging zalenium code
+    networks:
+      - zalenium # attachable overlay network to use
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - C:\Users\Gabriel Neder\Documents\projetos\zalenium\videos:/home/seluser/videos
+    environment:
+      - PULL_SELENIUM_IMAGE=true
+      - ZALENIUM_PROXY_CLEANUP_TIMEOUT=1800
+    command: ["start", "--swarmOverlayNetwork", "STACK_zalenium", "--videoRecordingEnabled", "true", "--maxDockerSeleniumContainers", "5"]
+
+networks:
+  zalenium:
+    driver: overlay
+    attachable: true
