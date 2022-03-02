@@ -13,7 +13,8 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.time.Duration;
+import java.util.concurrent.TimeUnit;
+
 
 public class SearchTest {
 
@@ -39,6 +40,7 @@ public class SearchTest {
 
         driver.get("http://www.google.com");
         driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
     @Test(priority = 2)

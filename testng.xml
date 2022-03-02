@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
-    <test verbose="2" preserve-order="true" name="chrometest">
         <parameter name="browser" value="chrome" />
+    <test verbose="2" preserve-order="true"  name="chrometest">
         <classes>
             <class name="testCases.SearchTest">
                 <methods>
@@ -11,9 +11,8 @@
             </class>
         </classes>
     </test>
-
-    <parameter name="browser" value="firefox" />
-    <test verbose="2" preserve-order="true" name="firefoxtest">
+        <parameter name="browser" value="firefox" />
+    <test verbose="2" preserve-order="true"  name="firefoxtest">
         <classes>
             <class name="testCases.SearchTest">
                 <methods>
