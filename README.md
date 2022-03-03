@@ -21,15 +21,23 @@ $ git clone https://github.com/gneder/ZaleniumGridTest.git
 
 ---
 
+### Executar os testes via cmd:
+```
+$ mvn clean test
+```
+
+---
+
 ### Execução via IntelliJ
 
 Acessar o seguinte diretório
-
-$ cd /ZaleniumGridTest/src/test/java/testCases/SearchTest
+```
+$ cd /ZaleniumGridTest/testng.xml
+```
 
 Clicar com o botão direito do mouse em qualquer parte do arquivo
 
-	- Selecionar a opção 'Run TestNG'
+	- Selecionar a opção 'Run '...\testng.xml'
 ---
 
 ## Cenários
