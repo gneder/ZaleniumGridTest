@@ -20,31 +20,30 @@ public class SearchTest {
 
     private static WebDriver driver;
 
-    String nodeURL = "http://localhost:4444/wd/hub";
-
     @BeforeTest
     @Parameters("browser")
     void setup(String br) throws MalformedURLException
     {
+        String nodeURL = "http://localhost:4444/wd/hub";
 
         if(br.equals("chrome"))
         {
-            ChromeOptions cap = new ChromeOptions();
-            driver = new RemoteWebDriver(new URL(nodeURL), cap);
+            ChromeOptions options = new ChromeOptions();
+            driver = new RemoteWebDriver(new URL(nodeURL), options);
         }
         else if (br.equals("firefox"))
         {
-            FirefoxOptions cap = new FirefoxOptions();
-            driver = new RemoteWebDriver(new URL(nodeURL), cap);
+            FirefoxOptions options = new FirefoxOptions();
+            driver = new RemoteWebDriver(new URL(nodeURL), options);
         }
 
-        driver.get("http://www.google.com");
+        driver.get("https://www.google.com");
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
-    @Test(priority = 2)
-    void searchTest()
+    @Test
+    void searchTest() throws InterruptedException
     {
         driver.findElement(By.xpath("//*[@name='q']")).sendKeys("neder medium");
         driver.findElement(By.xpath("//*[@name='q']")).sendKeys(Keys.ENTER);
